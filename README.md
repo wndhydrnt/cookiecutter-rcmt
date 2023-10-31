@@ -1,2 +1,3 @@
 # cookiecutter-rcmt
-cookiecutter template to create a new rcmt repository
+
+cookiecutter template to bootstrap a new rcmt Task repository.
