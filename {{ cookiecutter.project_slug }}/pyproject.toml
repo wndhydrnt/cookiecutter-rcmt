@@ -1,0 +1,10 @@
+[project]
+name = "{{ cookiecutter.project_slug }}"
+requires-python = ">=3.9"
+dependencies = [
+  "rcmt=={{ cookiecutter._rcmt_version }}"
+]
+dynamic = ["version"]
+
+[tool.setuptools]
+packages = ["{{ cookiecutter.package_name }}"]
