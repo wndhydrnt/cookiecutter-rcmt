@@ -1,5 +1,5 @@
 {% if cookiecutter.create_dockerfile == "yes" or cookiecutter.create_dockerfile == "y" -%}
-DOCKER_IMAGE="{{ cookiecutter.project_slug }}"
+DOCKER_IMAGE={{ cookiecutter.project_slug }}
 
 .PHONY: docker_build
 docker_build:
