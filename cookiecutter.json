@@ -1,0 +1,12 @@
+{
+  "project_slug": "rcmt-tasks",
+  "package_name": "{{ cookiecutter.project_slug.lower().replace(' ', '_').replace('-', '_') }}",
+  "create_dockerfile": "y",
+  "_python_version": "3.11",
+  "_rcmt_version": "0.26.0",
+  "__prompts__": {
+    "project_slug": "Project Name",
+    "package_name": "Python Package Name",
+    "create_dockerfile": "Set up Docker (y/n)"
+  }
+}
