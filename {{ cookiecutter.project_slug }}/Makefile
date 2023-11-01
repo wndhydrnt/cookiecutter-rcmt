@@ -3,7 +3,7 @@ DOCKER_IMAGE="{{ cookiecutter.project_slug }}"
 
 .PHONY: docker_build
 docker_build:
-	docker build -t $DOCKER_IMAGE .
+	docker build -t ${DOCKER_IMAGE} .
 
 {% endif -%}
 .PHONY: dependencies
