@@ -4,7 +4,15 @@
 
 All task files are stored in [{{ cookiecutter.package_name }}](./{{ cookiecutter.package_name }}).
 
-### Run rcmt locally
+### Local Development Setup
+
+Set up the virtual environment and install dependencies:
+
+```shell
+make setup
+```
+
+Activate the virtual environment:
 
 ```shell
 # Activate the virtualenv
@@ -18,7 +26,7 @@ rcmt version
     ```toml
     # ...
     dependencies = [
-      "rcmt==0.26.0",
+      "rcmt=={{ cookiecutter._rcmt_version }}",
       "<Python package>==<version>"
     ]
     # ...

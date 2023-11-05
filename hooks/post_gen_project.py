@@ -6,16 +6,19 @@ import os
 import os.path
 import subprocess
 import sys
-import venv
 
 DOCKERFILE_CREATE = "{{ cookiecutter.create_dockerfile }}"
 VENV_PROMPT = "{{ cookiecutter.project_slug }}"
 
 
-def create_venv() -> None:
-    venv.create(
-        env_dir=os.path.join(os.getcwd(), "venv"), prompt=VENV_PROMPT, with_pip=True
-    )
+def create_venv() -> bool:
+    try:
+        subprocess.run(
+            args=["make", "setup"],
+            cwd=os.getcwd(),
+        )
+    except Exception:
+        return False
 
 
 def delete_docker_files() -> None:
@@ -24,26 +27,14 @@ def delete_docker_files() -> None:
         os.remove(path)
 
 
-def install_dependencies() -> bool:
-    python_path = os.path.join(os.getcwd(), "venv", "bin", "python3")
-    try:
-        subprocess.run(
-            args=[python_path, "-m", "pip", "install", "-e", "."],
-            cwd=os.getcwd(),
-        )
-    except Exception:
-        return False
-
-
 if __name__ == "__main__":
     if DOCKERFILE_CREATE != "yes" and DOCKERFILE_CREATE != "y":
         delete_docker_files()
 
-    create_venv()
-    result = install_dependencies()
+    result = create_venv()
     if result is False:
         print(
-            "ERROR: Failed to install rcmt and dependencies inti virtualenv",
+            "ERROR: Failed to install rcmt and dependencies into virtualenv",
             file=sys.stderr,
         )
         sys.exit(1)
