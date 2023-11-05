@@ -1,3 +1,6 @@
+{% if cookiecutter.create_dockerfile == "yes" or cookiecutter.create_dockerfile == "y" -%}
+DOCKER_IMAGE={{ cookiecutter.project_slug }}
+{% endif -%}
 PROJECT_NAME={{ cookiecutter.project_slug }}
 VENV_DIR=./venv
 
@@ -9,7 +12,7 @@ venv:
 {% if cookiecutter.create_dockerfile == "yes" or cookiecutter.create_dockerfile == "y" -%}
 .PHONY: docker_build
 docker_build:
-	docker build -t ${PROJECT_NAME} .
+	docker build -t ${DOCKER_IMAGE} .
 
 {% endif -%}
 .PHONY: dependencies
