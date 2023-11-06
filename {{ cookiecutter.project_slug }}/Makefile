@@ -17,10 +17,14 @@ docker_build:
 {% endif -%}
 .PHONY: dependencies
 dependencies:
-	${VENV_DIR}/bin/pip install -e .
+	${VENV_DIR}/bin/pip install -e .[test]
 
 .PHONY: deps
 deps: dependencies
 
 .PHONY: setup
 setup: venv deps
+
+.PHONY: test
+test:
+	${VENV_DIR}/bin/pytest .
