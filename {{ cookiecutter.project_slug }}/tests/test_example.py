@@ -1,6 +1,6 @@
 from rcmt.unittest import TaskTestCase, Repository, File
 
-from rcmt_tasks.example import Example
+from {{cookiecutter.package_name}}.example import Example
 
 
 class ExampleTest(TaskTestCase):
