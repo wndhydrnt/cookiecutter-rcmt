@@ -17,7 +17,7 @@ docker_build:
 {% endif -%}
 .PHONY: dependencies
 dependencies:
-	${VENV_DIR}/bin/pip install -e .[test]
+	${VENV_DIR}/bin/pip install -e .
 
 .PHONY: deps
 deps: dependencies
@@ -27,4 +27,4 @@ setup: venv deps
 
 .PHONY: test
 test:
-	${VENV_DIR}/bin/pytest .
+	${VENV_DIR}/bin/python -m unittest discover -v

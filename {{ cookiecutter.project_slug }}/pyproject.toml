@@ -6,10 +6,5 @@ dependencies = [
 ]
 dynamic = ["version"]
 
-[project.optional-dependencies]
-test = [
-  "pytest>=7.4.3"
-]
-
 [tool.setuptools]
 packages = ["{{ cookiecutter.package_name }}"]
