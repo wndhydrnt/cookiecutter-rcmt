@@ -25,18 +25,6 @@ def set_python_version_variable() -> None:
     _write_cookiecutter_json(data)
 
 
-def set_latest_rcmt_version() -> None:
-    try:
-        with urllib.request.urlopen("https://pypi.org/pypi/rcmt/json") as f:
-            package_data = json.load(f)
-
-        data = _read_cookiecutter_json()
-        data["_rcmt_version"] = package_data["version"]
-        _write_cookiecutter_json(data)
-    except Exception:
-        pass
-
-
 def _read_cookiecutter_json() -> dict:
     cookiecutter_json_path = os.path.join(os.getcwd(), "cookiecutter.json")
     with open(file=cookiecutter_json_path, mode="r") as f:
