@@ -8,11 +8,12 @@ class Example(Task):
 
     def filter(self, ctx: Context) -> bool:
         # Add filter criteria here
-        return False
+        return ctx.repo.full_name == "example.dev/local/test"
 
     def apply(self, ctx: Context) -> None:
         # Make modifications here
-        pass
+        with open("example.txt", "w+") as f:
+            f.write("example\n")
 
 
 register_task(Example())

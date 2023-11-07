@@ -24,3 +24,7 @@ deps: dependencies
 
 .PHONY: setup
 setup: venv deps
+
+.PHONY: test
+test:
+	${VENV_DIR}/bin/python -m unittest discover -v

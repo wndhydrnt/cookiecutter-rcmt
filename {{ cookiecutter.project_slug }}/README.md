@@ -20,6 +20,12 @@ source ./venv/bin/activate
 rcmt version
 ```
 
+### Run Tests
+
+```shell
+make test
+```
+
 ### Add a new dependency
 
 1.  Add the dependency to [`pyproject.toml`](./pyproject.toml):
